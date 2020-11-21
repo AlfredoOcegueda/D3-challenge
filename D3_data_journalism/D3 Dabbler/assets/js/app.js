@@ -47,7 +47,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
 
     // Step 3: Create axis functions
     // ==============================
-    var bottomAxis = d3.axisBottom(xLinearScale);
+    var bottomAxis = d3.axisBottom(xLinearScale );
     var leftAxis = d3.axisLeft(yLinearScale);
 
     // Step 4: Append Axes to the chart
@@ -67,8 +67,8 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
         .append("circle")
         .attr("cx", d => xLinearScale(d.poverty))
         .attr("cy", d => yLinearScale(d.healthcare))
-        .attr("r", "15")
-        .attr("fill", "blue")
+        .attr("r", "10")
+        .attr("fill", "#89bdd5")
         .attr("opacity", ".5")
 
     // Step 6: Initialize tool tip
@@ -110,13 +110,13 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
         .attr("text-anchor", "middle")
         .attr("fill", "white")
         .attr("font-size", "10px")
-        .style("font-weight", "bold")
+        .style("font-weight", "bold");
         
     // Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 40)
-      .attr("x", 0 - (height / 2))
+      .attr("x", 0 - (height / 2) - 80)
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Lacks Healthcare (%)")
