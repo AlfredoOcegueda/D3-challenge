@@ -1,5 +1,5 @@
-var svgWidth = 960;
-var svgHeight = 500;
+var svgWidth = 800;
+var svgHeight = 450;
 
 var margin = {
   top: 20,
@@ -77,7 +77,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("class", "tooltip")
       .offset([80, -60])
       .html(function(d) {
-        return (`${d.state}<br>Healthcare: ${d.healthcare}<br>Poverty: ${d.poverty}`);
+        return (`<strong>${d.state}</strong><br>Healthcare: ${d.healthcare}<br>Poverty: ${d.poverty}`);
       });
 
     // Step 7: Create tooltip in the chart
