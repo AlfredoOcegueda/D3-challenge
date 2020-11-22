@@ -90,15 +90,15 @@ function updateToolTip(defaultXAxis, defaultYAxis, circlesGroup, textGroup) {
             if (defaultXAxis === "age") {
 
                 // display Age without format for x axis
-                return (`${d.state}<hr>${xlabel} ${d[defaultXAxis]}<br>${ylabel}${d[defaultYAxis]}%`);
+                return (`<strong>${d.state}</strong><br>${xlabel} ${d[defaultXAxis]}<br>${ylabel}${d[defaultYAxis]}%`);
                 } else if (defaultXAxis !== "poverty" && defaultXAxis !== "age") {
 
                 // display Income in dollars for x axis
-                return (`${d.state}<hr>${xlabel}$${d[defaultXAxis]}<br>${ylabel}${d[defaultYAxis]}%`);
+                return (`<strong>${d.state}<br></strong>${xlabel}$${d[defaultXAxis]}<br>${ylabel}${d[defaultYAxis]}%`);
                 } else {
 
                 // display Poverty as percentage for x axis
-                return (`${d.state}<hr>${xlabel}${d[defaultXAxis]}%<br>${ylabel}${d[defaultYAxis]}%`);
+                return (`<strong>${d.state}<br></strong>${xlabel}${d[defaultXAxis]}%<br>${ylabel}${d[defaultYAxis]}%`);
                 }      
         });
     circlesGroup.call(toolTip);
@@ -132,8 +132,8 @@ function Scatter() {
     }
 
     // create dimensions
-    var svgWidth = 960;
-    var svgHeight = 500;
+    var svgWidth = 800;
+    var svgHeight = 450;
 
     var margin = {
         top: 40,
@@ -227,7 +227,7 @@ function Scatter() {
             .classed("active", true)
             .text("In Poverty (%)");
         var ageLabel = xLabelsGroup.append("text")
-            .attr("x", 0)
+            .attr("x", -2)
             .attr("y", 40)
             .attr("value", "age") // value to grab for event listener
             .classed("inactive", true)
