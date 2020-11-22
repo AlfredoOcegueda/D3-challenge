@@ -132,8 +132,8 @@ function Scatter() {
     }
 
     // create dimensions
-    var svgWidth = 1000;
-    var svgHeight = 750;
+    var svgWidth = 960;
+    var svgHeight = 500;
 
     var margin = {
         top: 40,
@@ -196,16 +196,23 @@ function Scatter() {
         var circle = elemEnter.append("circle")
             .attr("cx", d => xLinearScale(d[defaultXAxis]))
             .attr("cy", d => yLinearScale(d[defaultYAxis]))
-            .attr("r", 15)
+            .attr("r", 10)
+            .attr("fill", "#89bdd5")
+            .attr("opacity", ".5")
             .classed("stateCircle", true);
 
         // create circle text
         var circleText = elemEnter.append("text")            
             .attr("x", d => xLinearScale(d[defaultXAxis]))
             .attr("y", d => yLinearScale(d[defaultYAxis]))
-            .attr("dy", ".35em") 
             .text(d => d.abbr)
-            .classed("stateText", true);
+            .classed("stateText", true)
+            .attr("alignment-baseline", "central")
+            .attr("font-family", "sans-serif")
+            .attr("text-anchor", "middle")
+            .attr("fill", "white")
+            .attr("font-size", "10px")
+            .style("font-weight", "bold");;
 
         // updateToolTip function above csv import
         var circlesGroup = updateToolTip(defaultXAxis, defaultYAxis, circle, circleText);
